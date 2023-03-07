@@ -1,10 +1,17 @@
 import React from "react";
-import { CDBBtn} from "cdbreact";
 import "./Profile.css";
 import Sidebar from "../../Sidebar/Sidebar";
 import Navbar from "../../Navbar/Navbar";
+import CardHeader from "@mui/material/CardHeader";
+import Avatar from "@mui/material/Avatar";
+import { red } from "@mui/material/colors";
+import PersonIcon from "@mui/icons-material/Person";
+import EmailIcon from "@mui/icons-material/Email";
+import KeyIcon from "@mui/icons-material/Key";
+import HomeWorkIcon from "@mui/icons-material/HomeWork";
 
 export default function Profile() {
+  const data = JSON.parse(localStorage.getItem("Admin_Data"));
   return (
     <div className="d-flex profile">
       <div>
@@ -29,50 +36,46 @@ export default function Profile() {
             }}
           >
             <div style={{ margin: "0 auto", maxWidth: "1320px" }}>
-              <div className="cards-container1">
-                <div>
-                  <div className="card shadow border-0">
-                    <img
-                      alt="profileImage"
-                      src="/img/pages/heroImage2.png"
-                      className="w-100"
-                      style={{ objectFit: "cover", maxHeight: "500px" }}
-                    />
-                    <div className="card-body">
-                      <h4
-                        className="card-title mb-2"
-                        style={{ fontWeight: "600" }}
-                      >
-                        Profile
-                      </h4>
-                      <h5 className="mb-2">Web Developer</h5>
-                      <p className="text-justify mt-4">
-                        <strong className="mb-2">Desciption: </strong>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Ratione perferendis quod animi dignissimos
-                      </p>
-                      <div className="justify-content-end pr-1">
-                        <CDBBtn color="dark" outline>
-                          More
-                        </CDBBtn>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mini-container">
-                  <div>
-                    <div className="card shadow border-0">
-                      <div className="p-3">
-                        <h3>Basic</h3>
-                        <p>
-                          This is just a card text Get important notifications
-                          about you or activity you've missed{" "}
-                        </p>
-                        <CDBBtn style={{ background: "#333", border: "none" }}>
-                          Button
-                        </CDBBtn>
-                      </div>
-                    </div>
+              <div>
+                <div className="card shadow border-0">
+                  <CardHeader
+                    avatar={
+                      <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                        {data.userName.charAt(0)}
+                      </Avatar>
+                    }
+                    title=<h4>
+                      {data.userName}&nbsp;({data.userType})
+                    </h4>
+                  />
+                  <div className="card-body">
+                    <p className="text-justify mt-4">
+                      <strong className="mb-2">
+                        <PersonIcon />{" "}
+                      </strong>
+                      {data.firstName} {data.lastName}
+                    </p>
+
+                    <p className="text-justify mt-4">
+                      <strong className="mb-2">
+                        <EmailIcon />{" "}
+                      </strong>
+                      {data.email}
+                    </p>
+
+                    <p className="text-justify mt-4">
+                      <strong className="mb-2">
+                        <KeyIcon />{" "}
+                      </strong>
+                      {data.password}
+                    </p>
+
+                    <p className="text-justify mt-4">
+                      <strong className="mb-2">
+                        <HomeWorkIcon />{" "}
+                      </strong>
+                      {data.compony}
+                    </p>
                   </div>
                 </div>
               </div>

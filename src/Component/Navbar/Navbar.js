@@ -13,9 +13,6 @@ export default function Navbar() {
             placeholder="Search..."
             className="mb-n4 mt-n3 input-nav"
           />
-          <div className="icon" >
-            <i className="fas fa-user" />
-          </div>
         </CDBNavbar>
       </Header>
     </>

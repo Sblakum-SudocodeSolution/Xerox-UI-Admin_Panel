@@ -1,10 +1,8 @@
 import React from "react";
-import Sidebar from "../../Sidebar/Sidebar";
-import "./Dashbord.css";
 import Navbar from "../../Navbar/Navbar";
-import Logo from "../../Images/sudocode-resolution.png";
+import Sidebar from "../../Sidebar/Sidebar";
 
-export default function Dashboard() {
+export default function ActionList() {
   return (
     <>
       <div className="dashboard d-flex">
@@ -27,25 +25,16 @@ export default function Dashboard() {
                 <div className="cards-container">
                   <div className="card-bg w-100 border d-flex flex-column">
                     <div className="p-4 d-flex flex-column h-100">
-                      <h1>Dashboard</h1>
-                    </div>
-                  </div>
-                  <div className="card-bg w-100 border d-flex flex-column">
-                    <div className="p-4 d-flex flex-column h-100">
-                      <div className="d-flex align-items-center justify-content-between">
-                        {/* <h1>Rigth Div</h1> */}
-                      </div>
+                      <h1>Application_List</h1>
                     </div>
                   </div>
                 </div>
               </div>
               <footer className="footer">
                 <div className="d-flex align-items-center">
-                  <img alt="logo" src={Logo} width="100px" />
                   <span className="ml-4 lead mb-0 font-weight-bold">
                     Sudocode
                   </span>
-
                   <span
                     className="footer-rem"
                     style={{

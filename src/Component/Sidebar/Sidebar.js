@@ -7,9 +7,23 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from "cdbreact";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import Button from "react-bootstrap/Button";
+import LogoutIcon from "@mui/icons-material/Logout";
+import WorkspacesIcon from "@mui/icons-material/Workspaces";
 
 export default function Sidebar() {
+  let navigate = useNavigate();
+  let user = JSON.parse(localStorage.getItem("Admin_Data"));
+
+  let loggedin = JSON.parse(localStorage.getItem("Admin_loggedin"));
+
+  const handleLogout = () => {
+    localStorage.removeItem("loggedin");
+    navigate("/signin");
+  };
+
   return (
     <>
       <div
@@ -18,52 +32,57 @@ export default function Sidebar() {
       >
         <CDBSidebar textColor="#fff" backgroundColor="#333">
           <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+            <AdminPanelSettingsIcon />
             <a
               href="/"
               className="text-decoration-none"
               style={{ color: "inherit" }}
             >
-              Admin
+              &nbsp;Admin
             </a>
           </CDBSidebarHeader>
 
           <CDBSidebarContent className="sidebar-content">
             <CDBSidebarMenu>
-              <NavLink exact to="/" activeClassName="activeClicked">
+              <NavLink to="/">
                 <CDBSidebarMenuItem icon="columns">
                   dashboard
                 </CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/table" activeClassName="activeClicked">
-                <CDBSidebarMenuItem icon="table">tables</CDBSidebarMenuItem>
+              {user.userType === "Internal" ? (
+                <>
+                  <NavLink to="/table">
+                    <CDBSidebarMenuItem icon="table">
+                      Manage Users
+                    </CDBSidebarMenuItem>
+                  </NavLink>
+                  <NavLink to="/work">
+                    <CDBSidebarMenuItem icon={"folder"}>
+                      Work queue
+                    </CDBSidebarMenuItem>
+                  </NavLink>
+                </>
+              ) : (
+                <NavLink></NavLink>
+              )}
+              <NavLink to="/application">
+                <CDBSidebarMenuItem icon="file">
+                  Applications
+                </CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/profile" activeClassName="activeClicked">
+              <NavLink to="/profile">
                 <CDBSidebarMenuItem icon="user">profile</CDBSidebarMenuItem>
               </NavLink>
-              {/* <NavLink
-              exact
-              to="/hero404"
-              target="_blank"
-              activeClassName="activeClicked"
-            >
-              <CDBSidebarMenuItem
-                icon="exclamation-circle"
-              >
-                404 page
-              </CDBSidebarMenuItem>
-            </NavLink> */}
             </CDBSidebarMenu>
             <CDBSidebarMenu></CDBSidebarMenu>
           </CDBSidebarContent>
 
           <CDBSidebarFooter style={{ textAlign: "center" }}>
-            <div
-              className="sidebar-btn-wrapper"
-              style={{
-                padding: "20px 5px",
-              }}
-            >
-              Sidebar Footer
+            <div className="sidebar-btn-wrapper">
+              <Button variant="outline-secondary" onClick={handleLogout}>
+                <LogoutIcon />
+                &nbsp;Logout
+              </Button>
             </div>
           </CDBSidebarFooter>
         </CDBSidebar>

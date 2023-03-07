@@ -1,0 +1,64 @@
+{
+  "user": [
+    {
+      "userType": "Internal",
+      "userName": "Sidhdharth33",
+      "firstName": "sidhdharth",
+      "lastName": "Lakum",
+      "email": "sid@gmail.com",
+      "compony": "sudocodeSolution",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "userType": "External",
+      "userName": "Bhavin11",
+      "firstName": "bhavin ",
+      "lastName": "khan",
+      "email": "bvn@gmail.com",
+      "compony": "TCS",
+      "password": "7654",
+      "id": 2
+    },
+    {
+      "userType": "External",
+      "userName": "Mohit",
+      "firstName": "mohit",
+      "lastName": "patel",
+      "email": "mohit@gmail.com",
+      "compony": "Wipro",
+      "password": "12345",
+      "id": 3
+    },
+    {
+      "userType": "Internal",
+      "userName": "Sidhdharth22",
+      "firstName": "sidhdharth",
+      "lastName": "lakum",
+      "email": "lakum@test.com",
+      "compony": "sudocodeSolution",
+      "password": "1234",
+      "id": 4
+    },
+    {
+      "userType": "External",
+      "userName": "Milan12",
+      "firstName": "milan",
+      "lastName": "lakum",
+      "email": "milan@gmail.com",
+      "compony": "test",
+      "password": "1234",
+      "id": 5
+    },
+    {
+      "userType": "Internal",
+      "userName": "Sandip",
+      "firstName": "sandip",
+      "lastName": "lakum",
+      "email": "sandip@gmail.com",
+      "compony": "TCS",
+      "password": "12345",
+      "id": 6
+    }
+  ]
+}
